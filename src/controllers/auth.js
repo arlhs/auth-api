@@ -99,7 +99,6 @@ async function socialLogin(user) {
     }
     const token = jwt.sign({ userEmail: user.email, lastLogin: user.updated_at }, process.env.JWT_SECRET_KEY, { expiresIn: 60*60 });
 
-    console.log("token aaya2?", { userEmail: user.email, lastLogin: user.updated_at }, token);
     return token;
   } catch (error) {
     console.error('Error logging in user:', error);
