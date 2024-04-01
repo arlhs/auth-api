@@ -103,7 +103,6 @@ async function socialLogin(user) {
     return token;
   } catch (error) {
     console.error('Error logging in user:', error);
-    res.status(500).json({ error: 'Internal server error' });
   }
 }
 
