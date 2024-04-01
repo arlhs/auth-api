@@ -1,0 +1,78 @@
+<!-- // create a user login page with the following features:
+// 1. A user should be able to register with a username, email, and password.
+// 2. A user should be able to log in with an email and password.
+// 3. A user should be able to log out.
+// 4. A user should be able to log in with a social media account.
+// 5. A user should be able to edit my details including: photo, name, bio, phone, email, and password.
+// 6. A user should be able to choose to make my profile public or private.
+// As an admin user, I can see both public and private user profiles.
+// As a normal user, I can only see public user profiles. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login Page</title>
+</head>
+<body>
+    <!-- Registration Form -->
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- Login Form -->
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Social Media Login -->
+    <!-- This is a placeholder. Actual implementation will depend on the specific social media APIs you are using -->
+    <button id="socialMediaLogin">Login with Social Media</button>
+
+    <script>
+        document.getElementById('socialMediaLogin').addEventListener('click', async function() {
+            // Call your API here
+            const ressult = await fetch('http://localhost:3000/login', {
+                method: 'GET', // or 'GET'
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    // 'Authorization': 'Bearer your-token' (if needed)
+                },
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+            console.log(result);
+        });
+    </script>
+
+    <!-- User Details Form -->
+    <form id="userDetailsForm">
+        <input type="file" id="photo">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="bio" placeholder="Bio">
+        <input type="tel" id="phone" placeholder="Phone">
+        <input type="email" id="editEmail" placeholder="Email">
+        <input type="password" id="editPassword" placeholder="Password">
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <!-- Profile Visibility -->
+    <label for="profileVisibility">Make my profile</label>
+    <select id="profileVisibility">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+    </select>
+
+    <!-- Logout Button -->
+    <button id="logoutButton">Logout</button>
+</body>
+</html>
+
