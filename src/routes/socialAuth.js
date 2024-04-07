@@ -2,14 +2,13 @@ var router = require('express').Router();
 const { requiresAuth } = require('express-openid-connect');
 const { socialLogin } = require('../controllers/auth.js');
 
-
 router.get('/', function (req, res, next) {
   console.log('req.oidc.isAuthenticated(): ', req.oidc.user);
   res.render('index', {
     title: 'Auth0 Webapp sample Nodejs',
     isAuthenticated: req.oidc.isAuthenticated()
   });
-  res.redirect('/profile');
+  // res.redirect('/profile');
 });
 
 router.get('/profile', requiresAuth(), async function (req, res, next) {

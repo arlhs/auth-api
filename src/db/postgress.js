@@ -29,11 +29,14 @@ console.log("connection", {
 });
 
 const connection = {
-    host: process.env.HOST,
-    port: process.env.POSTGRES_POST,
-    database: process.env.DATABASE,
-    user: process.env.POSTGRES_USER,
-    password: process.env.PASSWORD,
+  host: process.env.HOST,
+  port: process.env.POSTGRES_POST,
+  database: process.env.DATABASE,
+  user: process.env.POSTGRES_USER,
+  password: process.env.PASSWORD,
+  ssl: {
+    rejectUnauthorized: false
+  }
 };
   
   const db = pgp(connection);
